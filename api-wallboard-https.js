@@ -13,7 +13,7 @@ const databaseUri = process.env.DATABASE_URI || process.env.MONGODB_URI;
 var apiport = 8405;
 
 const config = {
-  databaseURI: 'mongodb://team4_wallboarduser:WB1qazxsw2@10.21.43.203:27017/team4_wallboarddb',
+  databaseURI: 'mongodb://team4_wallboarduser:WB1qazxsw2@127.0.0.1:27017/team4_wallboarddb',
   cloud: process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
   appId: process.env.APP_ID || 'wallboardapi',
   masterKey: process.env.MASTER_KEY || 'wallboardapi', //Add your master key here. Keep it secret!
