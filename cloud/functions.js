@@ -165,3 +165,48 @@ Parse.Cloud.define("postOnlineAgentListByTeam", async request => {
         }
     }
 });
+
+// The async function moved outside
+async function postOnlineAgentListByTeam(AgentCode, AgentName, Team, AgentStatus, AgentStatusCode, IsLogin) {
+    try {
+        const apiUrl = 'https://10.21.43.203:8405/api/functions/postOnlineAgentListByTeam';
+        const params = {
+            AgentCode,
+            AgentName,
+            Queue: Team,
+            AgentStatus,
+            AgentStatusCode,
+            IsLogin
+        };
+
+        const headers = {
+            'Content-Type': 'application/json',
+            'X-Parse-Application-Id': 'wallboardapi',
+            'X-Parse-Master-Key': 'wallboardapi'
+        };
+
+        const response = await fetch(`${apiUrl}?${new URLSearchParams(params)}`, { headers });
+        const data = await response.json();
+
+        if (response.ok) {
+            return {
+                error: false,
+                statusCode: 200,
+                data: 'Agent list posted successfully'
+            };
+        } else {
+            return {
+                error: true,
+                statusCode: response.status,
+                errMessage: 'Failed to post agent list'
+            };
+        }
+    } catch (error) {
+        console.log(error);
+        return {
+            error: true,
+            statusCode: 500,
+            errMessage: 'An internal server error occurred'
+        };
+    }
+}
