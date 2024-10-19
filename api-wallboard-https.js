@@ -13,14 +13,14 @@ const databaseUri = process.env.DATABASE_URI || process.env.MONGODB_URI;
 var apiport = 8405;
 
 const config = {
-  databaseURI: 'mongodb://team4_wallboarduser:WB1qazxsw2@127.0.0.1:27017/team4_wallboarddb',
+  databaseURI: 'mongodb://wallboarduser:WB1qazxsw2@127.0.0.1:27017/wallboarddb',
   cloud: process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
   appId: process.env.APP_ID || 'wallboardapi',
   masterKey: process.env.MASTER_KEY || 'wallboardapi', //Add your master key here. Keep it secret!
   clientKey: 'wallboardapi',
   javascriptKey: 'wallboardapi',
-  serverURL: 'https://10.21.43.203:' + apiport + '/api', // Don't forget to change to https if needed
-  publicServerURL: 'https://10.21.43.203:' + apiport + '/api',
+  serverURL: 'https://localhost:' + apiport + '/api', // Don't forget to change to https if needed
+  publicServerURL: 'https://localhost:' + apiport + '/api',
   liveQuery: {
     classNames: ['OnlineAgentLists', 'WallboardBanners','CallAgentSummaries'], // List of classes to support for query subscriptions
   },
